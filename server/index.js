@@ -49,12 +49,11 @@ const storage = multer.diskStorage({
   const upload = multer({ storage });  // every time when file needs to be store we use this variable 
 
 
-// Allow CORS from your frontend domain
-const allowedOrigins = ["https://social-media-app-1-frontend.onrender.com"];
+// Set up CORS to allow requests from your frontend
 app.use(cors({
-  origin: allowedOrigins,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  credentials: true, // if you are sending cookies with requests
+  origin: "https://social-media-app-1-frontend.onrender.com", // your frontend URL
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true // if you are using cookies or other credentials
 }));
 
 
