@@ -22,6 +22,7 @@ import { verifyToken } from "./middleware/auth.js";
 
 
 
+
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -47,6 +48,14 @@ const storage = multer.diskStorage({
   });
   const upload = multer({ storage });  // every time when file needs to be store we use this variable 
 
+
+// Allow CORS from your frontend domain
+const allowedOrigins = ["https://social-media-app-1-frontend.onrender.com"];
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true, // if you are sending cookies with requests
+}));
 
 
   /* ROUTES WITH FILES */
